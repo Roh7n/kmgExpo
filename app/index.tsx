@@ -1,3 +1,4 @@
+import { Link } from "expo-router";
 import React, { useState } from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -25,7 +26,9 @@ export default function signin() {
                 source={require("../assets/images/icon.png")}
                 className="w-16 h-16"
               />
-              <Text className="font-nunito-black text-black text-4xl">Kmg</Text>
+              <Text className="font-nunito-black text-black text-5xl">
+                Mirash
+              </Text>
             </View>
             <Text className="font-nunito-bold text-gray-500 text-2xl text-center mt-2">
               It is never too late to{"\n"}fall in love
@@ -38,11 +41,13 @@ export default function signin() {
             </Text>
           </TouchableOpacity>
 
-          <TouchableOpacity>
-            <Text className="text-black text-center font-nunito-extrabold">
-              Sign in
-            </Text>
-          </TouchableOpacity>
+          <Link href="/signin" asChild>
+            <TouchableOpacity className="bg-white py-4 rounded-full w-2/3 mb-4">
+              <Text className="text-black text-center font-nunito-extrabold">
+                Sign in
+              </Text>
+            </TouchableOpacity>
+          </Link>
         </View>
       </ScrollView>
     </SafeAreaView>
