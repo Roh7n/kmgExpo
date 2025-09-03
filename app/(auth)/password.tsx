@@ -9,10 +9,19 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { OtpInput } from "react-native-otp-entry";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function password() {
   const [password, setPassword] = React.useState("");
+  const [otp, setOtp] = React.useState("");
+  const [isOtpMode, SetIsOtpMode] = React.useState(false);
+
+  const toggleMode = () => {
+    SetIsOtpMode(!isOtpMode);
+    setPassword("");
+    setOtp("");
+  };
 
   return (
     <SafeAreaView className="bg-white flex-1 ">
@@ -25,17 +34,34 @@ export default function password() {
           keyboardShouldPersistTaps="handled"
         >
           <View className="flex-1 bg-white justify-start items-center px-5 ">
-            <FormTextField
-              label="Enter your password"
-              placeholder="Password"
-              secureTextEntry={true}
-              value={password}
-              onChangeText={setPassword}
-            />
-            <TouchableOpacity className="bg-black py-4 px-6 rounded-full self-center mt-5">
-              <View className="flex flex-row items-center justify-center gap-2">
-                <Text className="text-white font-nunito-extrabold text-sm">
-                  Sign in with OTP
+            {!isOtpMode ? (
+              <FormTextField
+                label="Enter your password"
+                placeholder="Password"
+                secureTextEntry={true}
+                value={password}
+                onChangeText={setPassword}
+              />
+            ) : (
+              <View className="gap-3">
+                <Text className="font-nunito-black text-3xl ">
+                  Enter OTP code
+                </Text>
+                <OtpInput
+                  numberOfDigits={6}
+                  autoFocus={false}
+                  onTextChange={(text) => setOtp(text)}
+                />
+              </View>
+            )}
+
+            <TouchableOpacity
+              onPress={toggleMode}
+              className="bg-black py-4 px-6 rounded-full self-center mt-6"
+            >
+              <View>
+                <Text className="text-white font-nunito-extrabold text-sm ">
+                  {isOtpMode ? " Sign in with password" : "Sign in with OTP"}
                 </Text>
               </View>
             </TouchableOpacity>
