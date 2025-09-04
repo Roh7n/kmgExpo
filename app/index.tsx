@@ -23,7 +23,7 @@ export default function signin() {
           <View className="items-center mb-10 gap-4">
             <View className="flex-row items-center gap-2">
               <Image
-                source={require("../assets/images/icon.png")}
+                source={require("../assets/icons/icon.png")}
                 className="w-16 h-16"
               />
               <Text className="font-nunito-black text-black text-5xl p-2">

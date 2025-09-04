@@ -1,3 +1,4 @@
+import BackAction from "@/components/BackAction";
 import FormTextField from "@/components/FormTextField";
 import { router, useLocalSearchParams } from "expo-router";
 import { ArrowRight } from "lucide-react-native";
@@ -33,15 +34,18 @@ export default function password() {
 
   return (
     <SafeAreaView className="bg-white flex-1 ">
+      <View>
+        <BackAction />
+      </View>
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         style={{ flex: 1 }}
       >
         <ScrollView
-          contentContainerClassName="flex-grow pt-60"
+          contentContainerClassName="flex-grow"
           keyboardShouldPersistTaps="handled"
         >
-          <View className="flex-1 bg-white justify-start items-center px-5 ">
+          <View className="flex-1 bg-white justify-center items-center px-8 mt-6">
             {!isOtpMode ? (
               <FormTextField
                 label="Enter your password"
