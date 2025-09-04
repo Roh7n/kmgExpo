@@ -1,4 +1,5 @@
 import FormTextField from "@/components/FormTextField";
+import { router, useLocalSearchParams } from "expo-router";
 import { ArrowRight } from "lucide-react-native";
 import React from "react";
 import {
@@ -16,11 +17,18 @@ export default function password() {
   const [password, setPassword] = React.useState("");
   const [otp, setOtp] = React.useState("");
   const [isOtpMode, SetIsOtpMode] = React.useState(false);
+  const { flow } = useLocalSearchParams();
 
   const toggleMode = () => {
     SetIsOtpMode(!isOtpMode);
     setPassword("");
     setOtp("");
+  };
+
+  const handleContinue = () => {
+    if (flow === "signup") {
+      router.push("/stepWizard");
+    }
   };
 
   return (
@@ -68,7 +76,10 @@ export default function password() {
           </View>
         </ScrollView>
         <View className="px-5 pb-10 gap-2">
-          <TouchableOpacity className="bg-rose-400 py-4 rounded-full">
+          <TouchableOpacity
+            onPress={handleContinue}
+            className="bg-rose-400 py-4 rounded-full"
+          >
             <View className="flex flex-row items-center justify-center gap-2">
               <Text className="text-black font-nunito-extrabold text-lg">
                 Continue

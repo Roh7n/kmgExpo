@@ -14,7 +14,7 @@ export default function FormTextField({
     <View className="w-full gap-2">
       {label && <Text className="font-nunito-black text-3xl ">{label}</Text>}
       <TextInput
-        className="font-nunito-semibold border border-gray-400 rounded-2xl w-full h-15 px-4 mt-2 text-base"
+        className="font-nunito-semibold border border-gray-400 rounded-2xl w-full h-12 px-4 mt-2 text-base"
         placeholder={placeholder}
         secureTextEntry={secureTextEntry && !showPassword}
         autoCapitalize="none"

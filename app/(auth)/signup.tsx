@@ -12,14 +12,14 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-export default function signin() {
+export default function signup() {
   const [phonenumber, setPhonenumber] = useState("");
 
   const handleContinue = () => {
     if (phonenumber.length === 10) {
       router.push({
         pathname: "/(auth)/passwordOtp",
-        params: { flow: "signin" },
+        params: { flow: "signup" },
       });
     }
   };

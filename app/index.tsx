@@ -26,7 +26,7 @@ export default function signin() {
                 source={require("../assets/images/icon.png")}
                 className="w-16 h-16"
               />
-              <Text className="font-nunito-black text-black text-5xl">
+              <Text className="font-nunito-black text-black text-5xl p-2">
                 Mirash
               </Text>
             </View>
@@ -34,12 +34,13 @@ export default function signin() {
               It is never too late to{"\n"}fall in love
             </Text>
           </View>
-
-          <TouchableOpacity className="bg-rose-400  py-4 rounded-full w-2/3 mb-4">
-            <Text className="text-black text-center font-nunito-extrabold">
-              Create an account
-            </Text>
-          </TouchableOpacity>
+          <Link href="/signup" asChild>
+            <TouchableOpacity className="bg-rose-400  py-4 rounded-full w-2/3 mb-4">
+              <Text className="text-black text-center font-nunito-extrabold">
+                Create an account
+              </Text>
+            </TouchableOpacity>
+          </Link>
 
           <Link href="/signin" asChild>
             <TouchableOpacity className="bg-white py-4 rounded-full w-2/3 mb-4">
