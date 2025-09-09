@@ -3,7 +3,7 @@ import { ChevronLeft } from "lucide-react-native";
 import * as React from "react";
 import { TouchableOpacity, View } from "react-native";
 
-const CustomBackAction = () => {
+const BackAction = () => {
   const navigation = useNavigation();
 
   return (
@@ -18,4 +18,4 @@ const CustomBackAction = () => {
   );
 };
 
-export default CustomBackAction;
+export default BackAction;
