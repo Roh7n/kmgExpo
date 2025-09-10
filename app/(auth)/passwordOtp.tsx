@@ -4,6 +4,7 @@ import { router, useLocalSearchParams } from "expo-router";
 import { ArrowRight } from "lucide-react-native";
 import React from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -27,6 +28,7 @@ export default function password() {
   };
 
   const handleContinue = () => {
+    Keyboard.dismiss();
     if (flow === "signup") {
       router.push("/stepWizard");
     }

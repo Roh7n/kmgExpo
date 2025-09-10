@@ -4,6 +4,7 @@ import CustomProgressBar from "@/components/ProgressBar";
 import { ArrowRight } from "lucide-react-native";
 import React, { JSX, useState } from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -53,12 +54,14 @@ export default function StepWizard() {
   };
 
   const goToNextStep = () => {
+    Keyboard.dismiss();
     if (currentStep < totalSteps) {
       setCurrentStep((prev) => prev + 1);
     }
   };
 
   const goToPreviousStep = () => {
+    Keyboard.dismiss();
     if (currentStep > 1) {
       setCurrentStep((prev) => prev - 1);
     }

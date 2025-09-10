@@ -4,6 +4,7 @@ import { router } from "expo-router";
 import { ArrowRight } from "lucide-react-native";
 import React, { useState } from "react";
 import {
+  Keyboard,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -17,6 +18,7 @@ export default function signup() {
   const [phoneNumber, setPhonenumber] = useState("");
 
   const handleContinue = () => {
+    Keyboard.dismiss();
     router.push({
       pathname: "/(auth)/passwordOtp",
       params: { flow: "signup" },
