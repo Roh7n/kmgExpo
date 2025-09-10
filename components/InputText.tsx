@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Text } from "react-native";
 import { TextInput } from "react-native-paper";
 
 export default function CustomInputText({ label = "", ...rest }) {
@@ -6,18 +7,25 @@ export default function CustomInputText({ label = "", ...rest }) {
   return (
     <TextInput
       mode="outlined"
-      label={label}
+      label={
+        <Text
+          style={{ fontSize: 14, fontFamily: "Nunito-Bold", marginLeft: 10 }}
+        >
+          {label}
+        </Text>
+      }
       value={text}
       onChangeText={setText}
       style={{
         backgroundColor: "white",
       }}
       theme={{
-        roundness: 20,
+        roundness: 12,
         colors: {
           primary: "black",
           outline: "black",
-          onSurfaceVariant: "black",
+          onSurface: "black",
+          text: "black",
         },
       }}
       {...rest}
